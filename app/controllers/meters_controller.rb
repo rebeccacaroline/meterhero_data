@@ -1,8 +1,8 @@
 class MetersController < ApplicationController
   def index
+    @meters = Meter.where("city=?", params["city"])
+    p @meters
   end
 
-  def show
-  end
 
 end

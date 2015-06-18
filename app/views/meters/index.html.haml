@@ -1,3 +1,25 @@
-%input(placeholder="Type city here")
-%input(type='submit')
+%form.city
+  %input{placeholder: "Type City Here", id: "city"}
+  %input{type: "submit"}
+
+.container
+
+  .meters-template
+    .meters
+      %ul
+        %li
+          Meter
+
+  .savings-template
+    .savings
+      %h2
+        Water Savings
+        %p
+      %h2
+        Electricity Savings
+        %p
+      %h2
+        Gas Savings
+        %p
+
 
