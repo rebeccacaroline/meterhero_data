@@ -10,6 +10,8 @@ To run this app:
 
   $ bundle
 
+  $ rake db:create db:migrate db:seed
+
   $ rails s
 
   Navigate to http://localhost:3000 in your browser.
