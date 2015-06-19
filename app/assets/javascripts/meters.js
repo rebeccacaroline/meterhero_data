@@ -5,15 +5,15 @@ $(document).ready(function(){
   $('form').on("submit", function(event){
     event.preventDefault();
     city_name = $('#city').val();
-    $('#city').val("");
+    $('#city').val("");// This clears the input field on submission so it looks a little better.
     $.ajax({
       url: "/",
       data: {city: city_name}
     }).success(function(response){
-      $('h2').hide();
+      $('h2').hide();//The reason the h2 is hidden twice is because I wanted it to hide itself if a user inputs a right city after having input a wrong city.
       $('.city-name').text(city_name);
-      $('.meter ol').empty();
-      iterateMeters(response['meters']);
+      $('.meter ol').empty(); //this makes it so that if a user inputs more than one city, the meter information gets replaced instead of appended to
+      iterateMeters(response['meters']); //this function was separated out to make the code a bit more readable
       $('.container').append(buildSavingsTemplate(response["savings"]));
     }).fail(function(){
       $('h2').show();
