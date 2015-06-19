@@ -1,4 +1,7 @@
 $(document).ready(function(){
+
+  $('h2').hide();
+
   $('form').on("submit", function(event){
     event.preventDefault();
     city_name = $('#city').val();
@@ -7,13 +10,14 @@ $(document).ready(function(){
       url: "/",
       data: {city: city_name}
     }).success(function(response){
+      $('h2').hide();
+      $('.city-name').text(city_name);
       iterateMeters(response['meters']);
       $('.container').append(buildSavingsTemplate(response["savings"]));
     }).fail(function(){
-      $('.container').prepend("<h2>That city could not be found</h2>")
+      $('h2').show();
     })
   });
-
 
   function buildSavingsTemplate(savingsInfo){
     $('.savings .water').text(savingsInfo['water']);
