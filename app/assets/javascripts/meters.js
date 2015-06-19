@@ -8,8 +8,7 @@ $(document).ready(function(){
       data: {city: city_name}
     }).success(function(response){
       iterateMeters(response['meters']);
-      $('.container').append(buildSavingsTemplate(response["savings"]))
-
+      $('.container').append(buildSavingsTemplate(response["savings"]));
     }).fail(function(){
       $('.container').append("<h2>That city could not be found</h2>")
     })
@@ -27,10 +26,9 @@ $(document).ready(function(){
   };
 
   function iterateMeters(meters){
-    console.log(meters);
-    for (i = 0; i < meters.length; i++ ) {
-      console.log(meters[i])
-      $('.container').append(buildMeterTemplate(meters[i]));
-    };
+    var context = {meter_response: meters};
+    var html = $('#meter-template').html();
+    var templatingFunction = Handlebars.compile(html);
+    $('.meter ul').append(templatingFunction(context));
   };
 });

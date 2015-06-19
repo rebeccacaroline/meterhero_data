@@ -6,6 +6,16 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.0/handlebars.js"></script>
+  <script id='meter-template' type="text/x-handlebars-template">
+    {{#meter_response}}
+    <li class="meters" id="{{id}}">
+      <p> {{utility}}</p>
+      <p> {{units_saved}}</p>
+      <p> {{dollar_amount_saved}}</p>
+    </li>
+    {{/meter_response}}
+  </script>
 </head>
 <body>
 
