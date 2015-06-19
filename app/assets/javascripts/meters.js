@@ -12,6 +12,7 @@ $(document).ready(function(){
     }).success(function(response){
       $('h2').hide();
       $('.city-name').text(city_name);
+      $('.meter ol').empty();
       iterateMeters(response['meters']);
       $('.container').append(buildSavingsTemplate(response["savings"]));
     }).fail(function(){
@@ -20,10 +21,10 @@ $(document).ready(function(){
   });
 
   function buildSavingsTemplate(savingsInfo){
-    $('.savings .water').text(savingsInfo['water']);
-    $('.savings .gas').text(savingsInfo['gas']);
-    $('.savings .electric').text(savingsInfo['electric']);
-    $('.savings .total').text(savingsInfo['total']);
+    $('.savings .water').text("$"+savingsInfo['water']);
+    $('.savings .gas').text("$"+savingsInfo['gas']);
+    $('.savings .electric').text("$"+savingsInfo['electric']);
+    $('.savings .total').text("$"+savingsInfo['total']);
   };
 
   function iterateMeters(meters){
