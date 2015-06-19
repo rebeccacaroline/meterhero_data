@@ -10,7 +10,7 @@ $(document).ready(function(){
       iterateMeters(response['meters']);
       $('.container').append(buildSavingsTemplate(response["savings"]));
     }).fail(function(){
-      $('.container').append("<h2>That city could not be found</h2>")
+      $('.container').prepend("<h2>That city could not be found</h2>")
     })
   });
 
