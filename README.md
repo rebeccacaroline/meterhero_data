@@ -1,4 +1,4 @@
-== README
+README
 
 Welcome to City Meter, my coding challenge for MeterHero.
 
