@@ -14,9 +14,6 @@ $(document).ready(function(){
     })
   });
 
-  function buildMeterTemplate(meterInfo){
-    $('.meters ul li').text(meterInfo);
-  };
 
   function buildSavingsTemplate(savingsInfo){
     $('.savings .water').text(savingsInfo['water']);
@@ -29,6 +26,6 @@ $(document).ready(function(){
     var context = {meter_response: meters};
     var html = $('#meter-template').html();
     var templatingFunction = Handlebars.compile(html);
-    $('.meter ul').append(templatingFunction(context));
+    $('.meter ol').append(templatingFunction(context));
   };
 });

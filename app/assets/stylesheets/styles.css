@@ -1,7 +1,48 @@
-.meters-template {
-  /*display: none;*/
+body {
+  background: url(http://www.simplifyem.com/property-management/wp-content/uploads/2010/06/shared-utility-meters-rental-lease-agreement.jpg) no-repeat center center fixed;
+  background-size: cover;
+  color: #373737;
 }
 
-.savings-template {
-  /*display: none;*/
+.container {
+  display: flex;
+}
+
+.meter, .savings{
+  margin: 1em;
+  padding: 1em;
+  width: 50%;
+  text-shadow: 0px 0px 2px rgba(255,255,255,0.5);
+  font-weight: bold;
+}
+
+.meter {
+  float: left;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.savings {
+  float: right;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+
+.city_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.city {
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 1em 2em;
+  color: gray;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.city input{
+  color: black;
 }
