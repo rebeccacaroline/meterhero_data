@@ -25,20 +25,20 @@ CSV.foreach('testdb.csv', "r:ISO-8859-1") do |line|
   slug = line[6]
   #I checked to see if the word "electric" or "gas" or "water" was included in the slug name. I noticed that in one slug, the name was "water-st-gas," and the next slug was "water-st-water." For that, I put "gas" above "water" so that when Ruby runs through, it will check the slugs against gas first, and assign the "water-st-gas" slug to "gas" instead of "water."
   if slug.include?("electric")
-    slug = "electric"
+    slug = "Electric"
   elsif slug.include?("gas")
-    slug = "gas"
+    slug = "Gas"
   elsif slug.include?("water")
-    slug = "water"
+    slug = "Water"
   else
     #Since some slugs didn't include the name of the utility, I checked the label in those cases.
     slug = line[1].downcase
     if slug.include?("electric")
-      slug = "electric"
+      slug = "Electric"
     elsif slug.include?("gas")
-      slug = "gas"
+      slug = "Gas"
     elsif slug.include?("water")
-      slug = "water"
+      slug = "Water"
     else
       #Some entries didn't mention the utility in the slug or the label. I chose, for the purposes of this challenge, to just ignore those entries.
       slug = nil
