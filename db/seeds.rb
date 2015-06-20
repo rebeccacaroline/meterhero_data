@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-require 'CSV'
+require 'csv'
 
 CSV.foreach('testdb.csv', "r:ISO-8859-1") do |line|
   line_state = line[12] ? line[12].upcase : nil
