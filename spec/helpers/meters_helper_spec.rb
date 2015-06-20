@@ -11,5 +11,29 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe MetersHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  let!(:meters){Meter.all}
+
+  describe "calculate_savings" do
+    it "takes one argument" do
+      expect(MetersHelper.instance_method(:calculate_savings).arity).to eq(1)
+    end
+
+    it "returns an array" do
+      expect(calculate_savings(meters)).to be_an_instance_of(Array)
+    end
+
+    it "returns an array of non-nil values" do
+      expect(calculate_savings(meters).sample).to_not be(nil)
+    end
+
+    it "returns an array of floats" do
+      expect(calculate_savings(meters).sample).to be_an_instance_of(Float)
+    end
+
+    it "returns an array of length 4" do
+      expect(calculate_savings(meters).length).to eq(4)
+    end
+
+  end
 end
